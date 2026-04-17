@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Project - Shopping Cart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>🛍 Velora Vault</h1>
+    <button class="cart-icon" onclick="toggleCart()">
+      🛒 Cart <span id="cartCount" class="badge">0</span>
+    </button>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <div class="layout">
+
+    <!-- PRODUCT LIST -->
+    <main>
+      <h2>Products</h2>
+      <div class="products-grid" id="productsGrid"></div>
+    </main>
+
+    <!-- CART SIDEBAR -->
+    <aside id="cartSidebar" class="cart-sidebar">
+      <h2>🛒 Your Cart</h2>
+      <div id="cartItems"></div>
+      <div class="cart-footer">
+        <p class="total">Total: <strong id="cartTotal">KES 0</strong></p>
+        <button class="checkout-btn" onclick="checkout()">✅ Checkout</button>
+        <button class="clear-btn" onclick="clearCart()">🗑 Clear Cart</button>
+      </div>
+    </aside>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
