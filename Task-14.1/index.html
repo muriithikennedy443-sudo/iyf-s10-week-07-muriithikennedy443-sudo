@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 14.1 - Code Organization</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>✅ Modular To-Do List</h1>
+    <p class="subtitle">Code organized into separate modules</p>
+
+    <div class="input-area">
+      <input type="text" id="todoInput" placeholder="Add a new task..." />
+      <button id="addBtn">+ Add</button>
+    </div>
+
+    <div class="filters">
+      <button id="filter-all" class="active" data-filter="all">All</button>
+      <button id="filter-active" data-filter="active">Active</button>
+      <button id="filter-completed" data-filter="completed">Completed</button>
+    </div>
+
+    <p class="stats" id="stats"></p>
+
+    <ul id="todoList"></ul>
+
+    <button class="clear-btn" id="clearBtn">🗑 Clear Completed</button>
+
+    <!-- Module structure display -->
+    <div class="modules-display">
+      <h3>📁 Module Structure</h3>
+      <pre>
+js/
+├── utils.js     # formatDate, generateId, debounce
+├── storage.js   # save, load, remove
+├── state.js     # centralized state & update functions
+├── ui.js        # all DOM rendering functions
+└── app.js       # entry point, event listeners</pre>
+    </div>
+  </div>
+
+  <!-- Load modules in correct order -->
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
