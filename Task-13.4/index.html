@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 13.4 - State Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>🧠 State Management Todo</h1>
+      <button class="theme-btn" onclick="toggleTheme()">🌙 Toggle Theme</button>
+    </div>
+
+    <div class="input-area">
+      <input type="text" id="todoInput" placeholder="Add a new task..." />
+      <button onclick="addTodo()">+ Add</button>
+    </div>
+
+    <div class="filters">
+      <button onclick="setFilter('all')" id="filter-all">All</button>
+      <button onclick="setFilter('active')" id="filter-active">Active</button>
+      <button onclick="setFilter('completed')" id="filter-completed">Completed</button>
+    </div>
+
+    <p class="stats" id="stats"></p>
+
+    <ul id="todoList"></ul>
+
+    <button class="clear-btn" onclick="clearCompleted()">🗑 Clear Completed</button>
+
+    <div class="state-panel">
+      <h3>📦 Current State (Observer Pattern)</h3>
+      <pre id="stateDisplay"></pre>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
