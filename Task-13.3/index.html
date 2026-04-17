@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 13.3 - Session Storage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🗂 Session Storage Form</h1>
+    <p class="subtitle">Your form auto-saves as you type. Data clears when you close the tab.</p>
+
+    <div class="comparison">
+      <div class="box session">
+        <h3>sessionStorage</h3>
+        <p>Cleared when browser/tab closes</p>
+        <p>✅ Shopping cart (current session)</p>
+        <p>✅ Form data backup (in progress)</p>
+      </div>
+      <div class="box local">
+        <h3>localStorage</h3>
+        <p>Persists until explicitly cleared</p>
+        <p>✅ User preferences & themes</p>
+        <p>✅ Authentication tokens</p>
+        <p>✅ Cached API data</p>
+      </div>
+    </div>
+
+    <form id="contactForm">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" name="name" id="name" placeholder="John Doe" />
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" id="email" placeholder="john@email.com" />
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" id="phone" placeholder="+254 700 000 000" />
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" id="message" placeholder="Type your message..."></textarea>
+      </div>
+
+      <p class="save-status" id="saveStatus">Start typing — your progress will be saved.</p>
+
+      <div class="buttons">
+        <button type="submit">🚀 Submit Form</button>
+        <button type="button" class="clear-btn" onclick="clearForm()">🗑 Clear</button>
+      </div>
+    </form>
+
+    <div class="storage-display">
+      <h3>📦 sessionStorage Contents</h3>
+      <pre id="storageDisplay">Nothing saved yet.</pre>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

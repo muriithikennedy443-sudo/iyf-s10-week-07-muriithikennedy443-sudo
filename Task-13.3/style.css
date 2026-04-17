@@ -1,0 +1,150 @@
+* { margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #1a1a2e;
+  color: #eee;
+  min-height: 100vh;
+  padding: 30px 20px;
+}
+
+.container {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #00d4aa;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.box {
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.box h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.session {
+  background: #0f3460;
+  border: 1px solid #e74c3c;
+}
+
+.session h3 { color: #e74c3c; }
+
+.local {
+  background: #0f3460;
+  border: 1px solid #00d4aa;
+}
+
+.local h3 { color: #00d4aa; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+input, textarea {
+  background: #16213e;
+  border: 1px solid #0f3460;
+  color: #eee;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+input:focus, textarea:focus {
+  border-color: #00d4aa;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.save-status {
+  font-size: 0.85rem;
+  color: #00d4aa;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  background: #00d4aa;
+  color: #1a1a2e;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover { background: #00b894; }
+
+.clear-btn {
+  background: #e74c3c;
+  color: white;
+}
+
+.clear-btn:hover { background: #c0392b; }
+
+.storage-display {
+  margin-top: 28px;
+  background: #16213e;
+  border: 1px solid #0f3460;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.storage-display h3 {
+  color: #00d4aa;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+pre {
+  color: #aaa;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
