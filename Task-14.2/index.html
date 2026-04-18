@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 14.2 - Clean Code Practices</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Clean Code Practices</h1>
+    <p class="subtitle">Task 14.2 — Meaningful Names, Single Responsibility & No Magic Numbers</p>
+
+    <!-- EXERCISE 1: MEANINGFUL NAMES -->
+    <section class="section">
+      <h2>Exercise 1: Meaningful Names</h2>
+      <div class="comparison-grid">
+        <div class="bad-box">
+          <h4>❌ BAD Names</h4>
+          <pre>const d = new Date();
+const x = users.filter(u => u.a > 18);
+function calc(a, b) {
+  return a * b * 0.1;
+}</pre>
+        </div>
+        <div class="good-box">
+          <h4>✅ GOOD Names</h4>
+          <pre>const currentDate = new Date();
+const adultUsers = users.filter(
+  user => user.age > 18
+);
+function calculateDiscount(price, qty) {
+  const DISCOUNT_RATE = 0.1;
+  return price * qty * DISCOUNT_RATE;
+}</pre>
+        </div>
+      </div>
+      <div class="demo-box">
+        <h4>Live Demo — Discount Calculator</h4>
+        <div class="input-row">
+          <div class="form-group">
+            <label>Price ($)</label>
+            <input type="number" id="price" placeholder="100" />
+          </div>
+          <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" id="quantity" placeholder="3" />
+          </div>
+          <div class="form-group">
+            <label>Discount %</label>
+            <input type="number" id="discountPercent" placeholder="10" />
+          </div>
+        </div>
+        <button onclick="handleCalculateDiscount()">Calculate Discount</button>
+        <p class="result" id="discountResult"></p>
+      </div>
+    </section>
+
+    <!-- EXERCISE 2: SINGLE RESPONSIBILITY -->
+    <section class="section">
+      <h2>Exercise 2: Single Responsibility</h2>
+      <div class="comparison-grid">
+        <div class="bad-box">
+          <h4>❌ BAD — Does too many things</h4>
+          <pre>function processUser(userData) {
+  // Validate
+  // Transform
+  // Save to DB
+  // Send email
+  // Update UI
+  // TOO MANY JOBS!
+}</pre>
+        </div>
+        <div class="good-box">
+          <h4>✅ GOOD — One job each</h4>
+          <pre>validateUser(userData);
+normalizeUser(userData);
+createUser(userData);
+notifyUser(userData);
+renderUser(userData);</pre>
+        </div>
+      </div>
+      <div class="demo-box">
+        <h4>Live Demo — User Registration</h4>
+        <div class="input-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="userName" placeholder="John Doe" />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="userEmail" placeholder="john@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Age</label>
+            <input type="number" id="userAge" placeholder="20" />
+          </div>
+        </div>
+        <button onclick="handleCreateUser()">Register User</button>
+        <p class="result" id="userResult"></p>
+        <div id="usersList"></div>
+      </div>
+    </section>
+
+    <!-- EXERCISE 3: AVOID MAGIC NUMBERS -->
+    <section class="section">
+      <h2>Exercise 3: Avoid Magic Numbers</h2>
+      <div class="comparison-grid">
+        <div class="bad-box">
+          <h4>❌ BAD — Magic Numbers</h4>
+          <pre>if (password.length &lt; 8) { }
+setTimeout(callback, 86400000);
+if (response.status === 404) { }</pre>
+        </div>
+        <div class="good-box">
+          <h4>✅ GOOD — Named Constants</h4>
+          <pre>const MIN_PASSWORD_LENGTH = 8;
+const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+const HTTP_NOT_FOUND = 404;
+
+if (password.length &lt; MIN_PASSWORD_LENGTH)
+setTimeout(callback, ONE_DAY_MS);
+if (response.status === HTTP_NOT_FOUND)</pre>
+        </div>
+      </div>
+      <div class="demo-box">
+        <h4>Live Demo — Password Validator</h4>
+        <div class="form-group">
+          <label>Enter Password</label>
+          <input type="password" id="passwordInput" placeholder="Type a password..." />
+        </div>
+        <button onclick="handleValidatePassword()">Validate Password</button>
+        <div id="passwordResult"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
