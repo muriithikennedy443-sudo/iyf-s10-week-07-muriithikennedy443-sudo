@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 14.3 - Debugging Skills</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Debugging Skills</h1>
+    <p class="subtitle">Task 14.3 — Console Methods, Breakpoints & Bug Fixing</p>
+
+    <!-- EXERCISE 1: CONSOLE METHODS -->
+    <section class="section">
+      <h2>Exercise 1: Console Methods</h2>
+      <p class="note">Open DevTools (F12) → Console to see all outputs</p>
+
+      <div class="methods-grid">
+        <div class="method-card">
+          <h4>console.log()</h4>
+          <p>Basic logging for any value</p>
+          <code>console.log("Basic message")</code>
+        </div>
+        <div class="method-card warn">
+          <h4>console.warn()</h4>
+          <p>Yellow warning messages</p>
+          <code>console.warn("This might be a problem")</code>
+        </div>
+        <div class="method-card error">
+          <h4>console.error()</h4>
+          <p>Red error messages</p>
+          <code>console.error("This is wrong")</code>
+        </div>
+        <div class="method-card">
+          <h4>console.table()</h4>
+          <p>Displays arrays/objects as table</p>
+          <code>console.table(users)</code>
+        </div>
+        <div class="method-card">
+          <h4>console.group()</h4>
+          <p>Groups related logs together</p>
+          <code>console.group("User Processing")</code>
+        </div>
+        <div class="method-card">
+          <h4>console.time()</h4>
+          <p>Measures how long code takes</p>
+          <code>console.time("fetchUsers")</code>
+        </div>
+        <div class="method-card">
+          <h4>console.assert()</h4>
+          <p>Logs only if condition is false</p>
+          <code>console.assert(x > 0, "x must be positive")</code>
+        </div>
+        <div class="method-card">
+          <h4>console.trace()</h4>
+          <p>Shows call stack at that point</p>
+          <code>console.trace("How did we get here?")</code>
+        </div>
+      </div>
+
+      <button onclick="runConsoleDemos()">
+        Run All Console Methods (Check DevTools)
+      </button>
+      <p class="result success" id="consoleResult" style="display:none">
+        ✅ Check your DevTools Console (F12) to see all outputs!
+      </p>
+    </section>
+
+    <!-- EXERCISE 2: BREAKPOINTS -->
+    <section class="section">
+      <h2>Exercise 2: Debugging with Breakpoints</h2>
+
+      <div class="breakpoint-steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <p>Press <strong>F12</strong> to open DevTools</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <p>Click the <strong>Sources</strong> panel</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <p>Find <strong>script.js</strong> in the file tree</p>
+        </div>
+        <div class="step">
+          <span class="step-num">4</span>
+          <p>Click a <strong>line number</strong> to add a breakpoint</p>
+        </div>
+        <div class="step">
+          <span class="step-num">5</span>
+          <p>Click the button below to <strong>trigger the code</strong></p>
+        </div>
+      </div>
+
+      <div class="controls-info">
+        <h4> Debugger Controls</h4>
+        <div class="controls-grid">
+          <div class="control"><kbd>F10</kbd> Step over</div>
+          <div class="control"><kbd>F11</kbd> Step into</div>
+          <div class="control"><kbd>Shift+F11</kbd> Step out</div>
+          <div class="control"><kbd>F8</kbd> Continue</div>
+        </div>
+      </div>
+
+      <button onclick="runBreakpointDemo()">
+        Trigger Breakpoint Demo
+      </button>
+      <p class="result" id="breakpointResult"></p>
+    </section>
+
+    <!-- EXERCISE 3: DEBUG THIS CODE -->
+    <section class="section">
+      <h2>Exercise 3: Debug This Code</h2>
+
+      <div class="comparison-grid">
+        <div class="bad-box">
+          <h4>❌ BUGGY Code</h4>
+          <pre>function calculateOrderTotal(items) {
+  let total = 0;
+
+  // BUG 1: i <= items.length
+  // causes undefined on last iteration
+  for (let i = 0; i &lt;= items.length; i++) {
+    const item = items[i];
+    // BUG 2: typo - item.quanity
+    total += item.price * item.quanity;
+  }
+
+  // BUG 3: wrong threshold
+  // should be >= not >
+  if (total > 100) {
+    total = total * 0.9;
+  }
+
+  return total;
+}</pre>
+        </div>
+        <div class="good-box">
+          <h4>✅ FIXED Code</h4>
+          <pre>function calculateOrderTotal(items) {
+  let total = 0;
+
+  // FIX 1: i < items.length (not <=)
+  for (let i = 0; i &lt; items.length; i++) {
+    const item = items[i];
+    // FIX 2: correct spelling - quantity
+    total += item.price * item.quantity;
+  }
+
+  // FIX 3: >= 100 for exact threshold
+  if (total >= 100) {
+    total = total * 0.9;
+  }
+
+  return total;
+}</pre>
+        </div>
+      </div>
+
+      <div class="demo-box">
+        <h4>Live Demo — Order Calculator</h4>
+        <div id="orderItems"></div>
+        <button onclick="runBuggyCode()" class="btn-danger">
+          ❌ Run Buggy Code
+        </button>
+        <button onclick="runFixedCode()">
+          ✅ Run Fixed Code
+        </button>
+        <div id="orderResult"></div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
